@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-age-counting",
+  "version": "1.0.0",
+  "description": "i forgot how to parse json so here i am",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
