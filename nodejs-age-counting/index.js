@@ -13,13 +13,30 @@ try {
       });
 
       resp.on('end', () => {
-        console.log(data);
-        respJson = JSON.parse(data);
+        const keys = [];
+        const ages = [];
+        let count = 0;
+
+        const respJson = JSON.parse(data);
         console.log(respJson);
+        respJson.data.split(',').forEach((pair) => {
+          const [field, value] = pair.trim().split('=');
+
+          if (field === 'key') keys.push(value);
+          if (field === 'age') ages.push(Number(value));
+        });
+
+        ages.forEach((age) => {
+          if (age >= 50) {
+            count++;
+          }
+        });
+
+        console.log(count);
       });
 
       console.log(resp.statusCode);
-      resp.resume;
+      resp.resume();
     },
   );
 } catch (err) {
