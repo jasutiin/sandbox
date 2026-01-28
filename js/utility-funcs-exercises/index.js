@@ -41,4 +41,35 @@ console.log(result3);
 // =====
 // EXERCISE 4: split into array, trim each, lowercase each, remove duplicates
 // =====
-const emails = '  user1@email.com, USER2@EMAIL.COM  ,user3@email.com  ';
+const emails =
+  '  user1@email.com, USER2@EMAIL.COM  ,user3@email.com     ,  uSeR1@email.com  ';
+const result4 = emails.split(',');
+const unique = new Set();
+result4.forEach((val) => {
+  unique.add(val.trim().toLowerCase());
+});
+console.log(unique);
+
+// =====
+// EXERCISE 5: split into array, trim each, lowercase each, remove duplicates
+// =====
+const products = [
+  { name: 'laptop', price: 1000 },
+  { name: 'mouse', price: 25 },
+  { name: 'keyboard', price: 75 },
+  { name: 'monitor', price: 300 },
+];
+let expensiveProducts = '';
+products.forEach((product, i) => {
+  if (product.price > 50)
+    expensiveProducts +=
+      i === 0 ? product.name.toUpperCase() : ' | ' + product.name.toUpperCase(); // i dont like this
+});
+console.log(expensiveProducts);
+
+// this is what claude suggested, way cleaner
+const result6 = products
+  .filter((product) => product.price > 50)
+  .map((product) => product.name.toUpperCase())
+  .join(' | ');
+console.log(result6);
