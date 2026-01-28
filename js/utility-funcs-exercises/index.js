@@ -73,3 +73,8 @@ const result6 = products
   .map((product) => product.name.toUpperCase())
   .join(' | ');
 console.log(result6);
+
+// =====
+// EXERCISE 6: parse into an object like {page: "1", sort: "name", filter: "active"}
+// =====
+const url = 'page=1&sort=name&filter=active';
